@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    # La ressource ne correspond pas à un fichier présent sur le serveur
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # La ressource ne correspond pas à un dossier présent sur le serveur
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /app.php?c=$1 [L,QSA]
+</IfModule>

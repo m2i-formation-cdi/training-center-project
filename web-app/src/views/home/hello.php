@@ -1,0 +1,1 @@
+<h1>Bonjour <?=$name?> vous avez <?=$age?></h1>
