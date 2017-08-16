@@ -3,4 +3,5 @@ ubuntu-xenial-16.04-cloudimg-console.log
 .idea/*
 web-app/.idea/*
 web-app/vendor/*
+vendor/*
 web-app/web/bower_components/*
