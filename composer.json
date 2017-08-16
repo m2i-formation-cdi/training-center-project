@@ -1,0 +1,14 @@
+{
+    "name": "formation/mvc-php",
+    "type": "project",
+    "require": {},
+
+    "autoload": {
+        "psr-4": {
+            "m2i\\Framework\\": "web-app/Framework/",
+            "m2i\\project\\Controller\\": "web-app/src/Controller/",
+            "m2i\\project\\Model\\DAO\\": "web-app/src/Model/DAO/",
+            "m2i\\project\\Model\\Entity\\": "web-app/src/Model/Entity/"
+        }
+    }
+}
