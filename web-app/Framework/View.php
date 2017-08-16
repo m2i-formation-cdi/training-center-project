@@ -17,7 +17,7 @@ class View
         return $this->getTemplateHtml($layout, $data);
     }
 
-    private function getTemplateHtml($template, $data= []){
+    public function getTemplateHtml($template, $data= []){
         ob_start();
 
         extract($data);

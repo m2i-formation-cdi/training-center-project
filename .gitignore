@@ -5,3 +5,5 @@ web-app/.idea/*
 web-app/vendor/*
 vendor/*
 web-app/web/bower_components/*
+.DS_Store
+web-app/.DS_Store

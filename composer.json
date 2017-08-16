@@ -1,7 +1,9 @@
 {
     "name": "formation/mvc-php",
     "type": "project",
-    "require": {},
+    "require": {
+        "spipu/html2pdf": "^5.0"
+    },
 
     "autoload": {
         "psr-4": {

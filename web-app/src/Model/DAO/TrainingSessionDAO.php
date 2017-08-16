@@ -34,6 +34,18 @@ class TrainingSessionDAO implements ITrainingSessionDAO {
         return $this;
     }
 
+    public function findAllWithProgram()
+    {
+        $sql = 'SELECT ts.id AS session_id, ts.start_date AS session_start, ts.end_date AS session_end, ts.session_code AS session_code, tp.label AS program_label, tp.description AS program_description ' .
+                 ', (SELECT COUNT(*) FROM training_session_enrollment AS tse WHERE tse.session_id = ts.id) AS session_nb_persons ' .
+               'FROM training_sessions AS ts ' .
+               'INNER JOIN training_programs AS tp ' .
+               'ON ts.training_program_id = tp.id '
+        ;
+        $this->selectStatement = $this->pdo->query($sql);
+        return $this;
+    }
+
     /**
     * @param array $pk
     * @return $this
@@ -45,6 +57,21 @@ class TrainingSessionDAO implements ITrainingSessionDAO {
         $this->selectStatement = $statement;
         return $this;
     }
+
+  public function findOneByIdWithProgram(array $pk)
+  {
+    $sql = 'SELECT ts.id AS session_id, ts.start_date AS session_start, ts.end_date AS session_end, ts.session_code AS session_code, tp.label AS program_label, tp.description AS program_description ' .
+            ', (SELECT COUNT(*) FROM training_session_enrollment AS tse WHERE tse.session_id = ts.id) AS session_nb_persons ' .
+            'FROM training_sessions AS ts ' .
+            'INNER JOIN training_programs AS tp ' .
+            'ON ts.training_program_id = tp.id ' .
+            'WHERE ts.id = ?'
+    ;
+    $statement = $this->pdo->prepare($sql);
+    $statement->execute($pk);
+    $this->selectStatement = $statement;
+    return $this;
+  }
 
     /**
     * @param array $search
@@ -87,7 +114,6 @@ class TrainingSessionDAO implements ITrainingSessionDAO {
         $this->selectStatement = $statement;
         return $this;
     }
-
 
     /**
     * @return array

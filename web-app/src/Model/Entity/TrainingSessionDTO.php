@@ -1,21 +1,22 @@
 <?php
+
 namespace m2i\project\Model\Entity;
 
 class TrainingSessionDTO {
 
     private static $columnMap = [
-       'id' => 'id', 
-'start_date' => 'startDate', 
-'end_date' => 'endDate', 
-'training_program_id' => 'trainingProgramId', 
-'session_code' => 'sessionCode'
+      'id' => 'id',
+      'start_date' => 'startDate',
+      'end_date' => 'endDate',
+      'training_program_id' => 'trainingProgramId',
+      'session_code' => 'sessionCode'
     ];
 
     private $id;
-private $startDate;
-private $endDate;
-private $trainingProgramId;
-private $sessionCode;
+    private $startDate;
+    private $endDate;
+    private $trainingProgramId;
+    private $sessionCode;
 
     public function __set($name, $value)
     {
@@ -40,44 +41,41 @@ private $sessionCode;
         }
     }
 
-
-
     public function setId($id){
-            $this->id = $id;
-            return $this;
-        }
-public function getId(){
-            return $this->id;
-        }
-public function setStartDate($startDate){
-            $this->startDate = $startDate;
-            return $this;
-        }
-public function getStartDate(){
-            return $this->startDate;
-        }
-public function setEndDate($endDate){
-            $this->endDate = $endDate;
-            return $this;
-        }
-public function getEndDate(){
-            return $this->endDate;
-        }
-public function setTrainingProgramId($trainingProgramId){
-            $this->trainingProgramId = $trainingProgramId;
-            return $this;
-        }
-public function getTrainingProgramId(){
-            return $this->trainingProgramId;
-        }
-public function setSessionCode($sessionCode){
-            $this->sessionCode = $sessionCode;
-            return $this;
-        }
-public function getSessionCode(){
-            return $this->sessionCode;
-        }
-
+        $this->id = $id;
+        return $this;
+    }
+    public function getId(){
+        return $this->id;
+    }
+    public function setStartDate($startDate){
+        $this->startDate = $startDate;
+        return $this;
+    }
+    public function getStartDate(){
+        return $this->startDate;
+    }
+    public function setEndDate($endDate){
+        $this->endDate = $endDate;
+        return $this;
+    }
+    public function getEndDate(){
+        return $this->endDate;
+    }
+    public function setTrainingProgramId($trainingProgramId){
+        $this->trainingProgramId = $trainingProgramId;
+        return $this;
+    }
+    public function getTrainingProgramId(){
+        return $this->trainingProgramId;
+    }
+    public function setSessionCode($sessionCode){
+        $this->sessionCode = $sessionCode;
+        return $this;
+    }
+    public function getSessionCode(){
+        return $this->sessionCode;
+    }
 
 
 }
