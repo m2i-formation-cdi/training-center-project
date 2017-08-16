@@ -46,6 +46,20 @@ class TrainingSessionEnrollmentDAO implements ITrainingSessionEnrollmentDAO {
         return $this;
     }
 
+    public function findPersonsBySession(array $pk)
+    {
+        $sql = 'SELECT tse.session_id AS session_id, p.id AS person_id, p.first_name AS person_firstname, p.name AS person_name, p.birth_date AS person_birthdate ' .
+               'FROM training_session_enrollment AS tse ' .
+               'INNER JOIN persons AS p ' .
+               'ON p.id = tse.person_id ' .
+               'WHERE tse.session_id = ?'
+        ;
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute($pk);
+        $this->selectStatement = $statement;
+        return $this;
+    }
+
     /**
     * @param array $search
     * @return $this

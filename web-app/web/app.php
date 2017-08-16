@@ -1,5 +1,7 @@
 <?php
 
+ini_set('display_errors', 1);
+
 use m2i\Framework\Router;
 use \m2i\Framework\Dispatcher;
 use \m2i\Framework\ServiceContainer as SC;
@@ -15,25 +17,49 @@ define("MODEL_PATH", SRC_PATH."/models");
 //Chargement des constantes de l'application
 require SRC_PATH."/conf/const.php";
 //chargement du framework mvc
-require ROOT_PATH. "/vendor/autoload.php";
+require ROOT_PATH. "/../vendor/autoload.php";
 
 //Définition des dépendances de l'application
 SC::add("db.connection", function(){
     return new \PDO(
         "mysql:host=localhost;dbname=training_center;charset=utf8",
-        "root", "", [\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_EXCEPTION]);
+        "root", "123", [\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_EXCEPTION]);
 });
 
 SC::add("person.dao", function (){
    return new \m2i\project\Model\DAO\PersonDAO(SC::get("db.connection"));
 });
 
+SC::add("user.dao", function (){
+  return new \m2i\project\Model\DAO\UserDAO(SC::get("db.connection"));
+});
+
+SC::add("role.dao", function (){
+  return new \m2i\project\Model\DAO\RoleDAO(SC::get("db.connection"));
+});
+
 SC::add("city.dao", function (){
-    return new \m2i\project\Model\DAO\CitieDAO(SC::get("db.connection"));
+  return new \m2i\project\Model\DAO\CitieDAO(SC::get("db.connection"));
+});
+
+SC::add("session.dao", function (){
+  return new \m2i\project\Model\DAO\TrainingSessionDAO(SC::get("db.connection"));
+});
+
+SC::add("enrollment.dao", function (){
+  return new \m2i\project\Model\DAO\TrainingSessionEnrollmentDAO(SC::get("db.connection"));
 });
 
 SC::add("person.dto", function (){
-    return new \m2i\project\Model\Entity\PersonDTO();
+  return new \m2i\project\Model\Entity\PersonDTO();
+});
+
+SC::add("user.dto", function (){
+  return new \m2i\project\Model\Entity\UserDTO();
+});
+
+SC::add("enrollment.dto", function (){
+  return new \m2i\project\Model\Entity\TrainingSessionEnrollmentDTO();
 });
 
 SC::add("view", function (){
