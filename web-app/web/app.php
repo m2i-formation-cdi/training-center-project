@@ -46,6 +46,7 @@ $routes = require SRC_PATH."/conf/routes.php";
 
 $url = filter_input(INPUT_GET, "c", FILTER_SANITIZE_URL);
 
+//Routage et dispatch
 $router = new Router($url, $routes);
 $dispatcher = new Dispatcher($router, "\\m2i\\project\\Controller\\");
 $dispatcher->dispatch();
