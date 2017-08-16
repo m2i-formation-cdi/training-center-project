@@ -21,9 +21,10 @@ require ROOT_PATH. "/../vendor/autoload.php";
 SC::add("db.connection", function(){
     return new \PDO(
         "mysql:host=localhost;dbname=training_center;charset=utf8",
-        "root", "", [\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_EXCEPTION]);
+        "root", "123", [\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_EXCEPTION]);
 });
 
+// DAO CLASS
 SC::add("person.dao", function (){
    return new \m2i\project\Model\DAO\PersonDAO(SC::get("db.connection"));
 });
@@ -32,8 +33,17 @@ SC::add("city.dao", function (){
     return new \m2i\project\Model\DAO\CitieDAO(SC::get("db.connection"));
 });
 
+SC::add("skill.dao", function (){
+    return new \m2i\project\Model\DAO\SkillDAO(SC::get("db.connection"));
+});
+
+// DTO CLASS
 SC::add("person.dto", function (){
     return new \m2i\project\Model\Entity\PersonDTO();
+});
+
+SC::add("skill.dto", function (){
+    return new \m2i\project\Model\Entity\SkillDTO();
 });
 
 SC::add("view", function (){
