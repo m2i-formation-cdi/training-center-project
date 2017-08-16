@@ -15,13 +15,13 @@ define("MODEL_PATH", SRC_PATH."/models");
 //Chargement des constantes de l'application
 require SRC_PATH."/conf/const.php";
 //chargement du framework mvc
-require ROOT_PATH. "/vendor/autoload.php";
+require ROOT_PATH. "/../vendor/autoload.php";
 
 //Définition des dépendances de l'application
 SC::add("db.connection", function(){
     return new \PDO(
         "mysql:host=localhost;dbname=training_center;charset=utf8",
-        "root", "", [\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_EXCEPTION]);
+        "root", "123", [\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_EXCEPTION]);
 });
 
 SC::add("person.dao", function (){
@@ -38,6 +38,21 @@ SC::add("person.dto", function (){
 
 SC::add("view", function (){
     return new \m2i\Framework\View();
+});
+
+/////////////////////
+//Training Programs//
+/////////////////////
+SC::add("trainingProgram.dao", function (){
+
+    return new \m2i\project\Model\DAO\TrainingProgramDAO(SC::get("db.connection"));
+
+});
+
+SC::add("trainingProgram.dto", function (){
+
+   return new \m2i\project\Model\Entity\TrainingProgramDTO(SC::get("db.connection"));
+
 });
 
 //récupération de la liste des routes

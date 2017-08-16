@@ -112,7 +112,7 @@ class TrainingProgramDAO implements ITrainingProgramDAO {
         if($data){
             return $data;
         } else {
-            throw new Exception("Ancun résultat pour cette requête");
+            throw new Exception("Aucun résultat pour cette requête");
         }
         
     }
@@ -140,7 +140,7 @@ class TrainingProgramDAO implements ITrainingProgramDAO {
         if($data){
             return $data;
         } else {
-            throw new Exception("Ancun résultat pour cette requête");
+            throw new Exception("Aucun résultat pour cette requête");
         }
     }
 
@@ -154,7 +154,7 @@ class TrainingProgramDAO implements ITrainingProgramDAO {
         if($data){
             return $data;
         } else {
-            throw new Exception("Ancun résultat pour cette requête");
+            throw new Exception("Aucun résultat pour cette requête");
         }
     }
 
