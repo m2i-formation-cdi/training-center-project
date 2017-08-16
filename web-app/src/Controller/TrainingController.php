@@ -7,8 +7,14 @@ use Spipu\Html2Pdf\Html2Pdf;
 use Spipu\Html2Pdf\Exception\Html2PdfException;
 use Spipu\Html2Pdf\Exception\ExceptionFormatter;
 
-class FormationController
+class TrainingController
 {
+
+  public function indexAction()
+  {
+    $view = SC::get("view");
+    echo $view->renderView("training/index");
+  }
 
   public function sessionsEnrollmentAction()
   {
@@ -17,7 +23,7 @@ class FormationController
     $sessions = $sessionDAO->findAllWithProgram()->getAllAsArray();
 
     $view = SC::get("view");
-    echo $view->renderView("formation/sessions-enrollment", [
+    echo $view->renderView("training/sessions-enrollment", [
       'sessions' => $sessions,
     ]);
   }
@@ -37,7 +43,7 @@ class FormationController
       $participants = $enrollmentDAO->findPersonsBySession([$sessionId])->getAllAsArray();
 
       ob_start();
-      echo $view->getTemplateHtml("formation/session-enrollment-pdf", [
+      echo $view->getTemplateHtml("training/session-enrollment-pdf", [
           'session' => $session,
           'participants' => $participants,
       ]);
