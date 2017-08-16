@@ -22,7 +22,7 @@ require ROOT_PATH. "/../vendor/autoload.php";
 SC::add("db.connection", function(){
     return new \PDO(
         "mysql:host=localhost;dbname=training_center;charset=utf8",
-        "root", "", [\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_EXCEPTION]);
+        "root", "123", [\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_EXCEPTION]);
 });
 
 SC::add("person.dao", function (){
