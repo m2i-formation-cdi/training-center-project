@@ -15,7 +15,8 @@ define("MODEL_PATH", SRC_PATH."/models");
 //Chargement des constantes de l'application
 require SRC_PATH."/conf/const.php";
 //chargement du framework mvc
-require ROOT_PATH. "/vendor/autoload.php";
+require ROOT_PATH. "/../vendor/autoload.php";
+
 
 //Définition des dépendances de l'application
 SC::add("db.connection", function(){
