@@ -26,6 +26,7 @@ SC::add("db.connection", function(){
         "root", "123", [\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_EXCEPTION]);
 });
 
+// DAO CLASS
 SC::add("person.dao", function (){
    return new \m2i\project\Model\DAO\PersonDAO(SC::get("db.connection"));
 });
@@ -50,6 +51,11 @@ SC::add("enrollment.dao", function (){
   return new \m2i\project\Model\DAO\TrainingSessionEnrollmentDAO(SC::get("db.connection"));
 });
 
+SC::add("skill.dao", function (){
+    return new \m2i\project\Model\DAO\SkillDAO(SC::get("db.connection"));
+});
+
+// DTO CLASS
 SC::add("person.dto", function (){
   return new \m2i\project\Model\Entity\PersonDTO();
 });
@@ -60,6 +66,10 @@ SC::add("user.dto", function (){
 
 SC::add("enrollment.dto", function (){
   return new \m2i\project\Model\Entity\TrainingSessionEnrollmentDTO();
+});
+
+SC::add("skill.dto", function (){
+    return new \m2i\project\Model\Entity\SkillDTO();
 });
 
 SC::add("view", function (){
