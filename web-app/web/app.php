@@ -76,6 +76,21 @@ SC::add("view", function (){
     return new \m2i\Framework\View();
 });
 
+/////////////////////
+//Training Programs//
+/////////////////////
+SC::add("trainingProgram.dao", function (){
+
+    return new \m2i\project\Model\DAO\TrainingProgramDAO(SC::get("db.connection"));
+
+});
+
+SC::add("trainingProgram.dto", function (){
+
+   return new \m2i\project\Model\Entity\TrainingProgramDTO(SC::get("db.connection"));
+
+});
+
 //récupération de la liste des routes
 $routes = require SRC_PATH."/conf/routes.php";
 
